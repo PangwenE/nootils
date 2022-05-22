@@ -21,34 +21,32 @@ export function FloatingDebris(startBeat: number,  endBeat: number,  duration: n
             dupe.spawnEffect = false;
             dupe.fake = true;
             dupe.interactable = false;
-            dupe.offset = duration;
+            dupe.life = duration;
 
             dupe.animation._dissolveArrow = [[0, 0]];
-            dupe.animation._dissolve = [[0, 0], [0, 0.5], [0.85, 0.501], [0, 1, "easeOutCubic"]];
+            dupe.animation._dissolve = [[0, 0], [0, 0.5], [0.85, 0.501], [0, 1, Remapper.EASE.OUT_CUBIC]];
             dupe.animation._localRotation = [[0, 0, 0, 0.5], [Random(-180, 180), Random(-180, 180), Random(-180, 180), 1]];
             if (note.direction == Remapper.NOTE.UP) {
-                dupe.animation._definitePosition = [[0, 0, 0, 0], [0, 0, 0, 0.5], [0*spread, 3, 5, 1, "easeOutCubic"]];
+                dupe.animate.definitePosition = [[0, 0, 0, 0], [0, 0, 0, 0.5], [0*spread, 3, 5, 1, Remapper.EASE.OUT_CUBIC]];
             } else if (note.direction == Remapper.NOTE.DOWN) {
-                dupe.animation._definitePosition = [[0, 0, 0, 0], [0, 0, 0, 0.5], [0*spread, -3, 5, 1, "easeOutCubic"]];
+                dupe.animate.definitePosition = [[0, 0, 0, 0], [0, 0, 0, 0.5], [0*spread, -3, 5, 1, Remapper.EASE.OUT_CUBIC]];
             } else if (note.direction == Remapper.NOTE.LEFT) {
-                dupe.animation._definitePosition = [[0, 0, 0, 0], [0, 0, 0, 0.5], [-3*spread, 0, 5, 1, "easeOutCubic"]];
+                dupe.animate.definitePosition = [[0, 0, 0, 0], [0, 0, 0, 0.5], [-3*spread, 0, 5, 1, Remapper.EASE.OUT_CUBIC]];
             } else if (note.direction == Remapper.NOTE.RIGHT) {
-                dupe.animation._definitePosition = [[0, 0, 0, 0], [0, 0, 0, 0.5], [3*spread, 0, 5, 1, "easeOutCubic"]];
+                dupe.animate.definitePosition = [[0, 0, 0, 0], [0, 0, 0, 0.5], [3*spread, 0, 5, 1, Remapper.EASE.OUT_CUBIC]];
             } else if (note.direction == Remapper.NOTE.UP_LEFT) {
-                dupe.animation._definitePosition = [[0, 0, 0, 0], [0, 0, 0, 0.5], [-3*spread, 3, 5, 1, "easeOutCubic"]];
+                dupe.animate.definitePosition = [[0, 0, 0, 0], [0, 0, 0, 0.5], [-3*spread, 3, 5, 1, Remapper.EASE.OUT_CUBIC]];
             } else if (note.direction == Remapper.NOTE.UP_RIGHT) {
-                dupe.animation._definitePosition = [[0, 0, 0, 0], [0, 0, 0, 0.5], [3*spread, 3, 5, 1, "easeOutCubic"]];
+                dupe.animate.definitePosition = [[0, 0, 0, 0], [0, 0, 0, 0.5], [3*spread, 3, 5, 1, Remapper.EASE.OUT_CUBIC]];
             } else if (note.direction == Remapper.NOTE.DOWN_LEFT) {
-                dupe.animation._definitePosition = [[0, 0, 0, 0], [0, 0, 0, 0.5], [-3*spread, -3, 5, 1, "easeOutCubic"]];
+                dupe.animate.definitePosition = [[0, 0, 0, 0], [0, 0, 0, 0.5], [-3*spread, -3, 5, 1, Remapper.EASE.OUT_CUBIC]];
             } else if (note.direction == Remapper.NOTE.DOWN_RIGHT) {
-                dupe.animation._definitePosition = [[0, 0, 0, 0], [0, 0, 0, 0.5], [3*spread, -3, 5, 1, "easeOutCubic"]];
+                dupe.animate.definitePosition = [[0, 0, 0, 0], [0, 0, 0, 0.5], [3*spread, -3, 5, 1, Remapper.EASE.OUT_CUBIC]];
             } else {
-                dupe.animation._definitePosition = [[0, 0, 0, 0], [0, 0, 0, 0.5], [Random(-3, 3), Random(-3, 3), 5, 1, "easeOutCubic"]];
+                dupe.animate.definitePosition = [[0, 0, 0, 0], [0, 0, 0, 0.5], [Random(-3, 3), Random(-3, 3), 5, 1, Remapper.EASE.OUT_CUBIC]];
             }
         
             dupe.push();
         }
-        
     });
 };
-
